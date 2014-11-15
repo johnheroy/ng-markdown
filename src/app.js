@@ -3,14 +3,14 @@
 
   var app = angular.module('angularTest', []);
 
-  app.controller('markdownController', ['$scope', '$sce', function($scope, $sce){
-
-    $scope.markdownHtml = '';
-
-    $scope.renderMarkdown = function(){
-      $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markdownInput));
+  app.filter('marked', ['$sce', function($sce){
+    return function(rawMarkdown){
+      return $sce.trustAsHtml(marked(rawMarkdown));
     };
+  }]);
 
+  app.controller('markdownController', ['$scope', function($scope){
+    $scope.rawMarkdown = '';
   }]);
 
 })();

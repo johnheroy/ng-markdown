@@ -24,7 +24,7 @@
 
 
           <!-- Markdown input -->
-          <textarea ng-model="markdownInput" ng-change="renderMarkdown()"
+          <textarea ng-model="rawMarkdown"
             placeholder="Type some markdown in here" class="form-control">
           </textarea>
 
@@ -32,7 +32,7 @@
 
         <div class="col-md-5">
           <!-- This is where the rendered html will go -->
-          <div ng-bind-html="markdownHtml">
+          <div ng-bind-html="rawMarkdown | marked">
           </div>
         </div>
 
