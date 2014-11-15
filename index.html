@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="angularTest">
+  <head>
+    <title>Angular Markdown</title>
+    <link rel="stylesheet" href="lib/bootstrap.css"></link>
+    <script src="lib/angular.js"></script>
+    <script src="lib/marked.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              Angular Markdown Demo
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="row" ng-controller="markdownController as markdownCtrl">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-5">
+
+
+          <!-- Markdown input -->
+          <textarea ng-model="markdownInput" ng-change="renderMarkdown()"
+            placeholder="Type some markdown in here" class="form-control">
+          </textarea>
+
+        </div>
+
+        <div class="col-md-5">
+          <!-- This is where the rendered html will go -->
+          <div ng-bind-html="markdownHtml">
+          </div>
+        </div>
+
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
